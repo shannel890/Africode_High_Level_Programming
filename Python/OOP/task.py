@@ -62,18 +62,35 @@
 # animal_sound(cat)
 # animal_sound(dog)
 
-class A:
-    def method(self):
-        return "Method from A"
+# class A:
+#     def method(self):
+#         return "Method from A"
     
-class B(A):
-    def method(self):
-        return "Method from B"
+# class B(A):
+#     def method(self):
+#         return "Method from B"
 
-class C(A):
-    def method(self):
-        return "Method from C"
+# class C(A):
+#     def method(self):
+#         return "Method from C"
 
-class D(B,C):
-    pass
-print(D.__mro__)
+# class D(B,C):
+#     pass
+# print(D.__mro__)
+
+from abc import ABC,abstractmethod
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+class Circle(Shape):
+    def __init__(self,radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 *self.radius * self.radius
+    
+circle = Circle(5)
+print(circle.area())
+        
